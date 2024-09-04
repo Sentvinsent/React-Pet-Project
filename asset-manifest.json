@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/React-Pet-Project/static/css/main.da69c33b.css",
+    "main.js": "/React-Pet-Project/static/js/main.f263beb1.js",
+    "static/media/investment-calculator-logo.png": "/React-Pet-Project/static/media/investment-calculator-logo.c20da4d5b23f8d49ad00.png",
+    "index.html": "/React-Pet-Project/index.html",
+    "main.da69c33b.css.map": "/React-Pet-Project/static/css/main.da69c33b.css.map",
+    "main.f263beb1.js.map": "/React-Pet-Project/static/js/main.f263beb1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.da69c33b.css",
+    "static/js/main.f263beb1.js"
+  ]
+}
