@@ -1,36 +1,15 @@
+import { useState, useCallback } from "react";
 import Form from "./components/Form/Form";
 import Table from "./components/Table/Table";
 import Header from "./components/Header/Header";
-import { useState } from "react";
+import calculation from "./utils/calculation";
 
 function App() {
   const [data, setData] = useState();
 
-  const calculateHandler = (userInput) => {
-    const yearlyData = [];
-
-    let currentSavings = +userInput.currentInpt;
-    const initInvestment = +userInput.currentInpt;
-    const yearlyContribution = +userInput.yearlyVal;
-    const expectedReturn = +userInput.expected / 100;
-    const duration = +userInput.duration;
-
-    for (let i = 0; i < duration; i++) {
-      const yearlyInterest = currentSavings * expectedReturn;
-      currentSavings += yearlyInterest + yearlyContribution;
-
-      yearlyData.push({
-        year: i + 1,
-        yearlyInterest: yearlyInterest,
-        savingsEndOfYear: currentSavings,
-        yearlyContribution: yearlyContribution,
-        initInvestment: initInvestment,
-      });
-    }
-
-    console.log("User data: ", yearlyData);
-    setData(yearlyData);
-  };
+  const calculateHandler = useCallback((userInput) => {
+    setData(calculation(userInput));
+  }, []);
 
   return (
     <div>

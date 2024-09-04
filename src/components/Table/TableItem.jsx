@@ -1,4 +1,6 @@
-const TableItem = (props) => {
+import { memo } from "react";
+
+const TableItem = memo((props) => {
   const formatter = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
@@ -25,6 +27,6 @@ const TableItem = (props) => {
       </td>
     </tr>
   );
-};
+});
 
 export default TableItem;

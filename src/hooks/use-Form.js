@@ -15,7 +15,7 @@ const useForm = () => {
     setValue(event.target.value);
   };
 
-  const onBlurHandler = (event) => {
+  const onBlurHandler = () => {
     setTouched(true);
   };
 

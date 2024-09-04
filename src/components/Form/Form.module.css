@@ -15,13 +15,13 @@
 }
 
 .single-input {
-  flex: 1 1 45%;
-  min-width: 200px;
+  flex: 1 1 100%;
 }
 
-@media (max-width: 768px) {
+@media (min-width: 768px) {
   .single-input {
-    flex: 1 1 100%;
+    flex: 1 1 45%;
+    min-width: 200px;
   }
 }
 

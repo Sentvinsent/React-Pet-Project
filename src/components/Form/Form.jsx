@@ -1,8 +1,8 @@
+import { useMemo } from "react";
 import useForm from "../../hooks/use-Form";
 import classes from "./Form.module.css";
 
 const Form = (props) => {
-  let formValidity = false;
   const error = (
     <p className={classes.form__error}>Value must be greater than 0</p>
   );
@@ -42,11 +42,14 @@ const Form = (props) => {
 
   //Save data
 
-  formValidity =
-    currentInptValidity &&
-    yearlyValidity &&
-    expectedValidity &&
-    durationValidity;
+  const formValidity = useMemo(() => {
+    return (
+      currentInptValidity &&
+      yearlyValidity &&
+      expectedValidity &&
+      durationValidity
+    );
+  }, [currentInptValidity, yearlyValidity, expectedValidity, durationValidity]);
 
   const handleFormReset = () => {
     currentInptResetHandler();
@@ -63,15 +66,14 @@ const Form = (props) => {
     }
 
     let formData = {
-      currentInpt,
-      yearlyVal,
-      expected,
-      duration,
+      currentInpt: +currentInpt,
+      yearlyContribution: +yearlyVal,
+      expectedReturn: +expected / 100,
+      duration: +duration,
     };
 
     props.onFormSubmission(formData);
   };
-
   return (
     <form className={classes.form} onSubmit={handleSubmit}>
       <div className={classes["input-group"]}>
